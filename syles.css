@@ -1,0 +1,340 @@
+:root {
+    --white: #f3f3f3;
+    --grey: #c7c4c4;
+    --accent: #c24f6e;
+    --dark1: #2e203c;
+    --dark2: #4d4b4c;
+    --black: rgb(0, 0, 0)
+}
+
+.container-section {
+    display: grid;
+    grid-template-columns: 20vw 80vw;
+    grid-template-rows: 20vh 10vh 70vh;
+    background-color: var(--white);
+}
+
+.image-container {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-image: url("https://i.pinimg.com/originals/7f/5e/1d/7f5e1dbf54920f5016fadfd9edada43c.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.image-container h1 {
+    grid-area: header-img;
+    position: relative;
+    color: var(--black);
+    text-align: center;
+    font-weight: 900;
+    font-size: 3em;
+}
+
+.library-log {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    background-color: var(--dark2);
+    height: min-content;
+    display: flex;
+    justify-content: space-around;
+    /* border: none; */
+    text-transform: uppercase;
+    font-weight: 100;
+    font-size: 1em;
+    color: white;
+}
+
+.aside-bar {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 5;
+    background-color: var(--grey);
+}
+
+.main {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 5;
+    background-color: var(--white);
+}
+
+.bookshelf {
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex: 1;
+}
+
+.wishlist-bucket {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex: 1;
+}
+
+.book {
+    border: 1px solid black;
+    border-radius: 1.5em;
+    margin: 2em;
+    padding: 2em;
+    background-color: var(--accent);
+    color: var(--white);
+    transition: 0.5s ease;
+    width: 15em;
+}
+
+.book:hover {
+    box-shadow: 3px 3px 30px 10px rgba(241, 41, 19, 0.25);
+}
+
+.book h3 {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+}
+
+.book h2 {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: var(--grey);
+    width: 100%;
+    border-radius: 0.7em;
+    padding: 0.5em;
+    color: var(--dark1);
+    text-align: center;
+}
+
+.wishlistItem {
+    border: 1px solid black;
+    border-radius: 1.5em;
+    margin: 0.5em;
+    padding: 1em;
+    background-color: var(--accent);
+    color: var(--white);
+    width: 90%;
+    transition: 0.5s ease;
+}
+
+.wishlistItem:hover {
+    box-shadow: 3px 3px 30px 10px rgba(241, 41, 19, 0.25);
+}
+
+.wishlistItem h3 {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.book .trash,
+.update {
+    background-color: var(--white);
+    border: none;
+    margin: 0.4em;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    width: 100%;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.wishlistItem .wishlist-trash {
+    background-color: var(--white);
+    border: none;
+    margin: 0.4em;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    width: 100%;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+#new-wishlistbook {
+    border: none;
+    outline: none;
+    font-size: 1.8rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--white);
+    background: var(--dark1);
+    transition: 0.5s ease;
+    position: fixed;
+    bottom: 5%;
+    right: 95%;
+}
+
+/*Add new book button*/
+#new-book {
+    border: none;
+    outline: none;
+    font-size: 1.8rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--white);
+    background: var(--dark1);
+    transition: 0.5s ease;
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+}
+
+/*the pop-up window for adding a new book */
+#wishlist-container {
+    position: absolute;
+    top: 100px;
+    left: 700px;
+    transform: scale(0);
+    transition: 0.5s ease;
+    padding: 1rem;
+    margin-top: 2rem;
+    box-shadow: 5px 5px 35px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    width: 300px;
+    z-index: 10000;
+    background: #fff;
+}
+
+/*the pop-up window for adding a new wishlist */
+#container {
+    position: absolute;
+    top: 100px;
+    left: 700px;
+    transform: scale(0);
+    transition: 0.5s ease;
+    padding: 1rem;
+    margin-top: 2rem;
+    box-shadow: 5px 5px 35px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    width: 300px;
+    z-index: 10000;
+    background: #fff;
+}
+
+#container h1 {
+    color: #2d4059;
+    text-align: center;
+    background: white;
+    padding: 1rem;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin: -1rem -1rem 1rem -1rem;
+    font-size: 3rem;
+    font-weight: 300;
+}
+
+#wishlist-container h1 {
+    color: #2d4059;
+    text-align: center;
+    background: white;
+    padding: 1rem;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin: -1rem -1rem 1rem -1rem;
+    font-size: 3rem;
+    font-weight: 300;
+}
+
+#container input[type="text"],
+#container input[type="number"],
+select {
+    display: block;
+    width: 90%;
+    padding: 1rem;
+    border: 0;
+    background: #f7f7f7;
+    font-size: 1rem;
+    outline: 0;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+#wishlist-container input[type="text"] {
+    display: block;
+    width: 90%;
+    padding: 1rem;
+    border: 0;
+    background: #f7f7f7;
+    font-size: 1rem;
+    outline: 0;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+#container input[type="submit"] {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    border: 0;
+    background: #2d4059;
+    font-size: 1rem;
+    outline: 0;
+    font-size: 1.4rem;
+    color: #fff;
+}
+
+#wishlist-container input[type="submit"] {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    border: 0;
+    background: #2d4059;
+    font-size: 1rem;
+    outline: 0;
+    font-size: 1.4rem;
+    color: #fff;
+}
+
+#container .close {
+    font-size: 3rem;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    transform: rotate(45deg);
+    cursor: pointer;
+    color: #2d4059;
+}
+
+#container .close:hover {
+    color: rgb(36, 113, 177);
+    transition: 0.3s ease;
+}
+
+#wishlist-container .wishlist-close {
+    font-size: 3rem;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    transform: rotate(45deg);
+    cursor: pointer;
+    color: #2d4059;
+}
+
+#wishlist-container .wishlist-close:hover {
+    color: rgb(36, 113, 177);
+    transition: 0.3s ease;
+}
+
+.total-books,
+.total_read,
+.not_read {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 250;
+    font-size: 1.4em;
+}
+
+.library-log h2 {
+    font-weight: 350;
+    font-size: 1.7em;
+}
